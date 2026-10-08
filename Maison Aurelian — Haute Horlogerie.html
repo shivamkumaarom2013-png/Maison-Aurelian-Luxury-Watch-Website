@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Aurelian — Haute Horlogerie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08150f;--bg2:#0d1f17;--ink:#ece8dd;--mute:#9aa79f;--gold:#c4a269;--line:rgba(196,162,105,.28);
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost','Helvetica Neue',Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="dark"]):not([data-theme="light"]){}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1eee6;--bg2:#e7e2d6;--ink:#1a2a22;--mute:#5d6b63;--gold:#8f6f35;--line:rgba(143,111,53,.35)}}
+:root[data-theme="light"]{--bg:#f1eee6;--bg2:#e7e2d6;--ink:#1a2a22;--mute:#5d6b63;--gold:#8f6f35;--line:rgba(143,111,53,.35)}
+:root[data-theme="dark"]{--bg:#08150f;--bg2:#0d1f17;--ink:#ece8dd;--mute:#9aa79f;--gold:#c4a269;--line:rgba(196,162,105,.28)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:300 1rem/1.7 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(1.4rem + env(safe-area-inset-top,0px)) 5vw 1.2rem;mix-blend-mode:normal;background:linear-gradient(var(--bg),transparent)}
+.logo{font:400 1.25rem var(--serif);letter-spacing:.32em}
+nav a.l{font-size:.78rem;letter-spacing:.2em;color:var(--mute);margin-left:2rem;transition:color .4s}
+nav a.l:hover{color:var(--gold)}
+@media(max-width:640px){nav a.l{display:none}}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;padding:7rem 5vw 4rem;overflow:hidden}
+.glow{position:absolute;width:60vmax;height:60vmax;border-radius:50%;background:radial-gradient(circle,rgba(196,162,105,.16),transparent 60%);left:var(--x,50%);top:var(--y,40%);transform:translate(-50%,-50%);pointer-events:none;transition:left .8s ease-out,top .8s ease-out}
+.dial{width:min(78vw,430px);aspect-ratio:1;margin:0 auto 2.2rem;animation:dialIn 2.4s .2s cubic-bezier(.2,.7,.1,1) both}
+@keyframes dialIn{from{opacity:0;transform:scale(.86) rotate(-14deg)}to{opacity:1;transform:none}}
+.guil{transform-origin:200px 200px;animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font:300 clamp(2.4rem,7.5vw,5.6rem)/1.02 var(--serif);letter-spacing:.04em}
+h1 span{display:inline-block;animation:rise 1.4s cubic-bezier(.2,.7,.1,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(60%)}to{opacity:1;transform:none}}
+.sub{margin-top:1.4rem;color:var(--mute);letter-spacing:.18em;font-size:.82rem;animation:fade 2s 2.6s both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.btn{display:inline-block;margin-top:2.4rem;padding:1rem 2.6rem;border:1px solid var(--gold);color:var(--gold);font-size:.8rem;letter-spacing:.24em;position:relative;overflow:hidden;animation:fade 2s 3s both;transition:color .5s}
+.btn:before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .6s cubic-bezier(.2,.7,.1,1);z-index:-1}
+.btn:hover{color:var(--bg)}.btn:hover:before{transform:none}
+.btn{isolation:isolate}
+section{padding:8rem 5vw}
+.wrap{max-width:1100px;margin:0 auto}
+h2{font:300 clamp(1.9rem,4.5vw,3.2rem)/1.15 var(--serif);max-width:18ch}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;border-top:1px solid var(--line);padding-top:4rem}
+.intro p{color:var(--mute);max-width:46ch}
+@media(max-width:760px){.intro{grid-template-columns:1fr;gap:2rem}}
+.coll{background:var(--bg2)}
+.pieces{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:4rem;border:1px solid var(--line)}
+.piece{background:var(--bg2);padding:3rem 2rem 2.4rem;text-align:center;transition:background .6s}
+.piece:hover{background:var(--bg)}
+.piece svg{width:62%;max-width:170px;transition:transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.piece:hover svg{transform:rotate(18deg) scale(1.06)}
+.piece h3{font:400 1.7rem var(--serif);margin-top:1.4rem}
+.piece p{color:var(--mute);font-size:.9rem;margin-top:.4rem}
+.piece b{display:block;margin-top:1.2rem;font-weight:300;color:var(--gold);letter-spacing:.1em}
+@media(max-width:760px){.pieces{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;text-align:center}
+.stats strong{display:block;font:300 clamp(2.6rem,6vw,4.4rem)/1 var(--serif);color:var(--gold)}
+.stats span{color:var(--mute);font-size:.88rem}
+@media(max-width:640px){.stats{grid-template-columns:1fr}}
+.cta{text-align:center;border-top:1px solid var(--line)}
+.cta h2{margin:0 auto 1.6rem}
+.cta p{color:var(--mute);max-width:44ch;margin:0 auto}
+.cta .btn{animation:none}
+footer{padding:2.5rem 5vw calc(2.5rem + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--mute);font-size:.8rem;border-top:1px solid var(--line)}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1.4s,transform 1.4s cubic-bezier(.2,.7,.1,1)}
+.js .rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#top">AURELIAN</a><div><a class="l" href="#collection">Collection</a><a class="l" href="#atelier">Atelier</a><a class="l" href="#visit">Private viewing</a></div></nav>
+
+<header class="hero" id="top">
+<div class="glow" id="glow"></div>
+<div>
+<svg class="dial" viewBox="0 0 400 400" role="img" aria-label="Animated watch dial showing the current time">
+<defs><radialGradient id="g" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#14301f"/><stop offset="1" stop-color="#06100b"/></radialGradient></defs>
+<circle cx="200" cy="200" r="196" fill="none" stroke="#c4a269" stroke-width="3"/>
+<circle cx="200" cy="200" r="188" fill="url(#g)" stroke="#c4a269" stroke-width=".6"/>
+<g class="guil" fill="none" stroke="#c4a269" stroke-opacity=".35" stroke-width=".5" id="guil"></g>
+<g id="ticks" stroke="#c4a269"></g>
+<text x="200" y="130" text-anchor="middle" fill="#ece8dd" font-family="Cormorant Garamond,serif" font-size="17" letter-spacing="6">AURELIAN</text>
+<text x="200" y="285" text-anchor="middle" fill="#c4a269" font-family="Jost,sans-serif" font-size="7" letter-spacing="4">TOURBILLON · 1 OF 28</text>
+<g id="h" stroke="#ece8dd" stroke-linecap="round">
+<line id="hh" x1="200" y1="212" x2="200" y2="125" stroke-width="5"/>
+<line id="mm" x1="200" y1="216" x2="200" y2="82" stroke-width="3.2"/>
+<line id="ss" x1="200" y1="232" x2="200" y2="62" stroke="#c4a269" stroke-width="1.2"/>
+</g>
+<circle cx="200" cy="200" r="7" fill="#c4a269"/><circle cx="200" cy="200" r="2.5" fill="#06100b"/>
+</svg>
+<h1 aria-label="Time, perfected in silence"><span>Time,</span> <span>perfected</span> <span>in</span> <span>silence.</span></h1>
+<p class="sub">HAUTE HORLOGERIE · GENEVA · SINCE 1887</p>
+<a class="btn" href="#visit">REQUEST A PRIVATE VIEWING</a>
+</div>
+</header>
+
+<section id="atelier"><div class="wrap">
+<div class="intro rv"><h2>Four hundred hours for a single movement.</h2>
+<p>Each Aurelian calibre is assembled, decorated and regulated by one watchmaker, from first bridge to final adjustment. We make twenty-eight watches a year, and none of them are rushed.</p></div>
+<div class="stats rv"><div><strong data-n="28">0</strong><span>watches made each year</span></div><div><strong data-n="412">0</strong><span>hours to assemble one calibre</span></div><div><strong data-n="18">0</strong><span>karat gold in every case</span></div></div>
+</div></section>
+
+<section class="coll" id="collection"><div class="wrap">
+<h2 class="rv">The current collection</h2>
+<div class="pieces rv" id="pieces"></div>
+</div></section>
+
+<section class="cta" id="visit"><div class="wrap rv">
+<h2>Seen in person, never rushed.</h2>
+<p>Viewings take place by appointment in our Geneva salon, or in your home. A member of the atelier will reply within a day.</p>
+<a class="btn" href="mailto:salon@aurelian.example">Book an appointment</a>
+</div></section>
+
+<footer><span>© 2026 Maison Aurelian SA · Rue du Rhône, Geneva</span><span>Fictional brand, created as a design demonstration.</span></footer>
+
+<script>
+document.documentElement.classList.add('js');
+setTimeout(()=>document.querySelectorAll('.rv').forEach(e=>e.classList.add('on')),4000);
+const NS='http://www.w3.org/2000/svg';
+function el(p,t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+// ticks
+const tk=document.getElementById('ticks');
+for(let i=0;i<60;i++){const big=i%5===0,r=i*6*Math.PI/180,r1=big?160:170,r2=178,c=Math.sin(r),d=-Math.cos(r);
+el(tk,'line',{x1:200+c*r1,y1:200+d*r1,x2:200+c*r2,y2:200+d*r2,'stroke-width':big?2.4:.7})}
+// guilloche
+const g=document.getElementById('guil');
+for(let i=0;i<36;i++){el(g,'circle',{cx:200+Math.cos(i*10*Math.PI/180)*26,cy:200+Math.sin(i*10*Math.PI/180)*26,r:92})}
+// hands, real time with smooth sweep
+const HH=document.getElementById('hh'),MM=document.getElementById('mm'),SS=document.getElementById('ss');
+function tick(){const n=new Date(),s=n.getSeconds()+n.getMilliseconds()/1000,m=n.getMinutes()+s/60,h=(n.getHours()%12)+m/60;
+HH.setAttribute('transform',`rotate(${h*30} 200 200)`);MM.setAttribute('transform',`rotate(${m*6} 200 200)`);SS.setAttribute('transform',`rotate(${s*6} 200 200)`);requestAnimationFrame(tick)}
+tick();
+// title stagger
+document.querySelectorAll('h1 span').forEach((s,i)=>s.style.animationDelay=(1.2+i*.28)+'s');
+// glow follows pointer
+const hero=document.querySelector('.hero');
+hero.addEventListener('pointermove',e=>{glow.style.setProperty('--x',e.clientX+'px');glow.style.setProperty('--y',e.clientY+'px')});
+// collection
+const items=[['Nocturne','Tourbilloné','Platinum, midnight enamel dial','CHF 148,000'],['Solstice','Perpetual calendar','18k rose gold, sapphire caseback','CHF 96,500'],['Meridian','Minute repeater','18k white gold, hand-guilloché','CHF 212,000']];
+pieces.innerHTML=items.map((p,i)=>`<article class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#c4a269" stroke-width="1.2"/><circle cx="50" cy="50" r="40" fill="none" stroke="#c4a269" stroke-width=".3" stroke-dasharray="1 2"/>${i==0?'<circle cx="50" cy="68" r="10" fill="none" stroke="#c4a269" stroke-width=".6"/>':i==1?'<circle cx="34" cy="50" r="7" fill="none" stroke="#c4a269" stroke-width=".6"/><circle cx="66" cy="50" r="7" fill="none" stroke="#c4a269" stroke-width=".6"/>':'<path d="M30 70 A28 28 0 0 1 70 70" fill="none" stroke="#c4a269" stroke-width=".6"/>'}<line x1="50" y1="50" x2="50" y2="22" stroke="#c4a269" stroke-width="1.4" transform="rotate(${40+i*70} 50 50)"/><line x1="50" y1="50" x2="50" y2="30" stroke="#c4a269" stroke-width="2" transform="rotate(${200+i*40} 50 50)"/></svg><h3>${p[0]}</h3><p>${p[1]}<br>${p[2]}</p><b>${p[3]}</b></article>`).join('');
+// reveal + count up
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('on');
+e.target.querySelectorAll('[data-n]').forEach(c=>{const t=+c.dataset.n,t0=performance.now();(function f(n){const k=Math.min((n-t0)/2200,1);c.textContent=Math.round(t*(1-Math.pow(1-k,4)));if(k<1)requestAnimationFrame(f)})(t0)});io.unobserve(e.target)}),{threshold:.25});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
